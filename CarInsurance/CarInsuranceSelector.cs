@@ -26,14 +26,20 @@ while (!int.TryParse(secondInputData, out yearOfMake) || !validYear)
     {
         Console.WriteLine("The car was invented 1885! ");
     }
+    else if (yearOfMake > currentYear)
+    {
+        Console.WriteLine("The car cannot be newer than the current year!");
+    }
     else
     {
         validYear = true;
     }
 }
 
+// Calculate age of the car
 int age = currentYear - yearOfMake;
 
+// Suggest insurance plan depending on age of the car
 if (age < 5)
 {
     Console.WriteLine("Get the full-premium insurance!");
