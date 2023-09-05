@@ -1,14 +1,11 @@
 ﻿// Converts gallons per mile to litres per kilometer
 
-Console.WriteLine("Enter gallons/mile: ");
+double gallons;
 
-double gallons = 0.0;
-string inputData = "";
-
-while (!double.TryParse(inputData, out gallons))
+do
 {
-    inputData = Console.ReadLine();
-}
+    Console.WriteLine("Enter gallons/mile: ");
+} while (!double.TryParse(Console.ReadLine(), out gallons));
 
 double litres = (gallons * 3.785) / 1.606;
 

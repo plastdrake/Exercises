@@ -1,40 +1,19 @@
 ﻿// Helps the user pick an insurance plan for their car
 
-using System;
-
 int currentYear = 0;
 int yearOfMake = 0;
-string firstInputData = "";
-string secondInputData = "";
-bool validYear = false;
 
 // Input for current year, check that it is an integer
-while (!int.TryParse(firstInputData, out currentYear))
+do
 {
     Console.WriteLine("Enter current year: ");
-    firstInputData = Console.ReadLine();
-}
+} while (!int.TryParse(Console.ReadLine(), out currentYear));
 
 // Input for manufactured year, check that it is an integer and that it is after the invention of cars
-while (!int.TryParse(secondInputData, out yearOfMake) || !validYear)
+do
 {
     Console.WriteLine("Enter year of make: ");
-    secondInputData = Console.ReadLine();
-    yearOfMake = int.Parse(secondInputData);
-
-    if (yearOfMake < 1885)
-    {
-        Console.WriteLine("The car was invented 1885! ");
-    }
-    else if (yearOfMake > currentYear)
-    {
-        Console.WriteLine("The car cannot be newer than the current year!");
-    }
-    else
-    {
-        validYear = true;
-    }
-}
+} while (!int.TryParse(Console.ReadLine(), out yearOfMake) || yearOfMake < 1885 || yearOfMake > currentYear);
 
 // Calculate age of the car
 int age = currentYear - yearOfMake;
